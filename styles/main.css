@@ -1,0 +1,42 @@
+/*
+
+#main-container {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    padding: 10px;
+    background-color: aqua;
+    width: 250px;
+}    
+
+table {
+    display: flex;
+}
+
+td {
+    padding: 5px;
+}
+*/
+
+#main-container {
+    padding: 10px;
+    background-color: aqua;
+    width: 250px;
+}    
+
+td {
+    width: 10px;
+    height: 10px;
+}
+
+.empty-space {
+    background-color: rgba(0, 0, 255, 0.144);
+    width: 5px;
+    height: 10x;
+}
+
+.empty-space-line {
+    background-color: rgba(0, 0, 255, 0.171);
+    width: 5px;
+    height: 5px;
+}
