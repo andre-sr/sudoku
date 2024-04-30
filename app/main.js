@@ -5,6 +5,17 @@ const mainContainer = document.querySelector('#main-container')
 //VARIAVEIS
 var tableMirror = []
 var tableMirrorSolution = []
+var qListStart = {
+    1 : {yp: 0, xp: 0},
+    2 : {yp: 0, xp: 3},
+    3 : {yp: 0, xp: 6},
+    4 : {yp: 3, xp: 0},
+    5 : {yp: 3, xp: 3},
+    6 : {yp: 3, xp: 6},
+    7 : {yp: 6, xp: 0},
+    8 : {yp: 6, xp: 3},
+    9 : {yp: 6, xp: 6}
+}
 
 //FUNCOES 
 function tableLineConstructor() {
@@ -103,19 +114,25 @@ function arrayCreator() {
 }
 
 function solutionCreator() {
-    for (let y = 0; y < 9; y++) {
-        for (let x = 0; x < 9; x++) {
-            randomNumber = 1 + Math.floor(Math.random() * 9)
-            tableMirror[y][x] 
-            
-            if (horizonCheck(y,x,randomNumber) == true) {
-                console.log('Otario')
-            } else {
-                tableMirror[y][x] = randomNumber
+    for (let i = 1; i < 10; i++) {
+        let startPosition = qListStart[i]
+       // console.log(startPosition)
+        let numberList = [1,2,4,5,6,7,8,9]
+        for (let y = 0; y < 3; y++) {
+            for (let x = 0; x < 3; x++) {
+                console.log(numberList)
+                let randomNumber = 1 + Math.floor(Math.random() * numberList.length - (y+x))
+                let chosedNumber = numberList[randomNumber]
+                let indexToRemove = numberList.indexOf(chosedNumber);
+                if (indexToRemove !== -1) {
+                    numberList.splice(indexToRemove, 1);
+                }
+                tableMirrorSolution[startPosition.yp+y][startPosition.xp+x] = chosedNumber
+
             }
 
- 
         }
+
     }
 }
 
@@ -152,3 +169,27 @@ function attTableElement() {
         }
     }
 }
+
+
+
+
+
+/*
+function solutionCreator() {
+    for (let y = 0; y < 9; y++) {
+        for (let x = 0; x < 9; x++) {
+            randomNumber = 1 + Math.floor(Math.random() * 9)
+            tableMirror[y][x] 
+            
+            if (horizonCheck(y,x,randomNumber) == true) {
+                console.log('Otario')
+            } else {
+                tableMirror[y][x] = randomNumber
+            }
+
+ 
+        }
+    }
+}
+
+*/
