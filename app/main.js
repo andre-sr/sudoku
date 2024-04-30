@@ -108,13 +108,25 @@ function solutionCreator() {
             randomNumber = 1 + Math.floor(Math.random() * 9)
             tableMirror[y][x] 
             
-            if () {
-
-            } 
+            if (horizonCheck(y,x,randomNumber) == true) {
+                console.log('Otario')
+            } else {
+                tableMirror[y][x] = randomNumber
+            }
 
  
         }
     }
+}
+
+function horizonCheck(y,x,randomNumber) {
+    let response = false
+    for (let n = 0; n < 9; n++) {
+        if (tableMirror[y][n] == randomNumber) {
+            response = true
+        }
+    }
+    return response
 }
 
 
@@ -125,6 +137,18 @@ function eventListenerCreator() {
             cell.addEventListener('click', (e) => {
                 console.log(e.srcElement.id)
             })    
+        }
+    }
+}
+
+function attTableElement() {
+    for (let y = 0; y < 9; y++) {
+        for (let x = 0; x < 9; x++) {
+            let cellElement = document.querySelector(`.y${y}-x${x}`)
+
+            cellElement.textContent = tableMirrorSolution[y][x] 
+
+ 
         }
     }
 }
